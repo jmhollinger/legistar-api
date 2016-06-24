@@ -5,7 +5,7 @@ var helmet = require('helmet');
 
 var app = express();
 
-/*app.use(helmet())*/
+app.use(helmet())
 
 var https_redirect = function(req, res, next) {
     if (process.env.NODE_ENV === 'production') {
