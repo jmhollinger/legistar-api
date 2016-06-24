@@ -21,6 +21,12 @@ var https_redirect = function(req, res, next) {
 
 app.use(https_redirect);
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(express.static('public'));
 
 app.use(bodyParser.json({
@@ -28,12 +34,6 @@ app.use(bodyParser.json({
 }));
 
 app.set('view engine', 'jade');
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 //Search for Legislation
 app.get('/api/v1/legislation', function(req, res) {
