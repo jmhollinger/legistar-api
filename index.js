@@ -41,7 +41,7 @@ app.get('/api/v1/legislation', function(req, res) {
 var term = req.query.search
 
 var options = {
-  url: 'https://webapi.legistar.com/v1/lexington/matters?$filter=substringof((\'' +  term + '\', MatterTitle) eq true or substringof((\'' +  term + '\', MatterName) or substringof((\'' +  term + '\', MatterFile)' +
+  url: 'https://webapi.legistar.com/v1/lexington/matters?$filter=substringof(\'' +  term + '\', MatterTitle) eq true or substringof(\'' +  term + '\', MatterName) or substringof(\'' +  term + '\', MatterFile)' +
   '&$select=MatterId,MatterGuid,MatterLastModifiedUtc,MatterFile,MatterName,MatterTitle,MatterTypeName,MatterStatusName,MatterBodyName,' +
   'MatterIntroDate,MatterAgendaDate,MatterPassedDate,MatterEnactmentNumber,MatterRequester' +
   '&$orderby=MatterId desc',
